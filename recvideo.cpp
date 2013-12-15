@@ -4,9 +4,10 @@
 #include "QMessageBox"
 #include "QFileDialog"
 #include "QDesktopServices"
-#include "QDebug"
 #include "QUrl"
+#include "QDebug"
 
+QString format;
 recvideo::recvideo(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::recvideo)
@@ -34,10 +35,18 @@ recvideo::~recvideo()
 
 void recvideo::on_pushButton_clicked()
 {
-
+    QString tres;
     QString uno = "ffmpeg -r ";
     QString dos = " -s ";
-    QString tres = " -f x11grab -i :0.0 -vcodec msmpeg4v2 -qscale 1 ";
+    QString tresa = " -f x11grab -i :0.0 -vcodec msmpeg4v2 -qscale 1 ";
+    QString tresb = " -f x11grab -i :0.0 -vcodec libx264 -qscale 1 ";
+    if(ui->comboBox->itemText(ui->comboBox->currentIndex())==".avi")
+    {
+        tres = tresa;
+    }else
+    {
+        tres = tresb;
+    }
     QString fin = " &";
     QString nombre = ui->namevideo->text();
     QString framerate = ui->framerate->text();
@@ -49,6 +58,7 @@ void recvideo::on_pushButton_clicked()
     const char * comando = str.c_str();
     system(comando);
     QWidget::setWindowState(Qt::WindowMinimized);
+
 }
 
 void recvideo::on_pushButton_2_clicked()
@@ -63,16 +73,22 @@ void recvideo::on_pushButton_2_clicked()
 
 void recvideo::on_namevideo_selectionChanged()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Seleccione ubicación y nombre Para guardar el vídeo"), ".avi",
+    /*QString fileName = QFileDialog::getSaveFileName(this, tr("Seleccione ubicación y nombre Para guardar el vídeo"), ".avi",
         tr("Ví­deo File (*.avi);;All Files (*. *.h)"));
+    ui->namevideo->setText(fileName);*/
+    formato();
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), format,
+                                                    tr("All Files (*. *.h);;MKV Ví­deo File (*.mkv);;AVI Ví­deo File (*.avi)"));
+
     ui->namevideo->setText(fileName);
 }
 
 
 void recvideo::on_namevideo_returnPressed()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), ".avi",
-        tr("Ví­deo File (*.avi);;All Files (*. *.h)"));
+    formato();
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), format,
+                                                    tr("All Files (*. *.h);;MKV Ví­deo File (*.mkv);;AVI Ví­deo File (*.avi)"));
 
     ui->namevideo->setText(fileName);
 }
@@ -95,4 +111,14 @@ void recvideo::acercade(){
 
 void recvideo::lic(){
     QMessageBox::information(this, "Abriendo Manual","DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE\n \tVersion 2, December 2004\nCopyright (C) 2004 Sam Hocevar <sam@hocevar.net> \nEveryone is permitted to copy and distribute verbatim or modified\ncopies of this license document, and changing it is allowed as long\nas the name is changed.\n \n          DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE \nTERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION \n \n 0. You just DO WHAT THE FUCK YOU WANT TO.");
+}
+
+void recvideo::formato(){
+    if(ui->comboBox->itemText(ui->comboBox->currentIndex())==".avi")
+    {
+        format=".avi";
+    }else
+    {
+        format=".mkv";
+    }
 }

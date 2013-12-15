@@ -32,6 +32,8 @@ public slots:
 
     void lic();
 
+    void formato();
+
 private:
     Ui::recvideo *ui;
 };
