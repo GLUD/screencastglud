@@ -55,9 +55,8 @@ void recvideo::on_pushButton_2_clicked()
 
 void recvideo::on_namevideo_selectionChanged()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Asigne ubicación y nombre Para guardar el vídeo"), ".avi",
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Seleccione ubicación y nombre Para guardar el vídeo"), ".avi",
         tr("Ví­deo File (*.avi);;All Files (*. *.h)"));
-
     ui->namevideo->setText(fileName);
 }
 
