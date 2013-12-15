@@ -20,6 +20,10 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_namevideo_selectionChanged();
+
+    void on_namevideo_returnPressed();
+
 private:
     Ui::recvideo *ui;
 };
