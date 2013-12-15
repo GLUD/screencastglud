@@ -24,6 +24,14 @@ public slots:
 
     void on_namevideo_returnPressed();
 
+    void abrirManual();
+
+    void abrirManualonline();
+
+    void acercade();
+
+    void lic();
+
 private:
     Ui::recvideo *ui;
 };

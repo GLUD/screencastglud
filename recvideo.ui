@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>386</width>
-    <height>172</height>
+    <width>440</width>
+    <height>274</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -26,131 +26,69 @@
    <bool>true</bool>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>11</x>
-      <y>1</y>
-      <width>109</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Nombre del video</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_2">
-    <property name="geometry">
-     <rect>
-      <x>290</x>
-      <y>90</y>
-      <width>80</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Salir</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="namevideo">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>1</y>
-      <width>241</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>11</x>
-      <y>27</y>
-      <width>68</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Framerate:</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>90</y>
-      <width>80</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Grabar</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="framerate">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>27</y>
-      <width>111</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="alto">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>53</y>
-      <width>110</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>11</x>
-      <y>53</y>
-      <width>101</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Tamaño Cuadro:</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="ancho">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>53</y>
-      <width>110</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>246</x>
-      <y>49</y>
-      <width>10</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>X</string>
-    </property>
-   </widget>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Nombre del video</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1" colspan="3">
+     <widget class="QLineEdit" name="namevideo"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Framerate:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="framerate"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>Tamaño Cuadro:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="ancho"/>
+    </item>
+    <item row="2" column="2">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>X</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="3">
+     <widget class="QLineEdit" name="alto"/>
+    </item>
+    <item row="3" column="1">
+     <widget class="QPushButton" name="pushButton">
+      <property name="text">
+       <string>Grabar</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="3">
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="text">
+       <string>Salir</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>386</width>
+     <width>440</width>
      <height>23</height>
     </rect>
    </property>
@@ -161,15 +99,17 @@
     <addaction name="actionGuardar"/>
     <addaction name="actionSalir"/>
    </widget>
+   <widget class="QMenu" name="menuAyuda">
+    <property name="title">
+     <string>Ayuda</string>
+    </property>
+    <addaction name="actionManual"/>
+    <addaction name="actionManual_Online"/>
+    <addaction name="actionAcerca_de"/>
+    <addaction name="actionLicencia"/>
+   </widget>
    <addaction name="menuArchivo"/>
-  </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
+   <addaction name="menuAyuda"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionGuardar">
@@ -180,6 +120,26 @@
   <action name="actionSalir">
    <property name="text">
     <string>Salir</string>
+   </property>
+  </action>
+  <action name="actionManual">
+   <property name="text">
+    <string>Manual</string>
+   </property>
+  </action>
+  <action name="actionAcerca_de">
+   <property name="text">
+    <string>Acerca de</string>
+   </property>
+  </action>
+  <action name="actionManual_Online">
+   <property name="text">
+    <string>Manual Online</string>
+   </property>
+  </action>
+  <action name="actionLicencia">
+   <property name="text">
+    <string>Licencia</string>
    </property>
   </action>
  </widget>
